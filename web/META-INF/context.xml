@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context path="/Gerbox">
+  <Resource auth="Container" driverClassName="com.mysql.jdbc.Driver" maxActive="20" maxIdle="5" maxWait="10000" name="jdbc/garbox_employee" password="webstudent" type="javax.sql.DataSource" url="jdbc:mysql://localhost:3306/garbox_employee" username="webstudent"/>
+  <Resource auth="Container" driverClassName="com.mysql.jdbc.Driver" maxActive="20" maxIdle="5" maxWait="10000" name="jdbc/garbox_customer" password="webstudent" type="javax.sql.DataSource" url="jdbc:mysql://localhost:3306/garbox_customer" username="webstudent"/>
+  <Resource auth="Container" driverClassName="com.mysql.jdbc.Driver" maxActive="20" maxIdle="5" maxWait="10000" name="jdbc/gerbox" password="webstudent" type="javax.sql.DataSource" url="jdbc:mysql://localhost:3306/gerbox" username="webstudent"/>
+</Context>
