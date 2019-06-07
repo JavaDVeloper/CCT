@@ -1,0 +1,95 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 19-Mar-2019, 00:44:11
+    Author     : PiotrB. CCT - sb17018
+*/
+
+a{
+    text-decoration: none;
+}
+
+.day-of-week, .day-of-weekend, .day-chosen{
+    width: 70px;
+    height: 70px;
+    border: 0;
+    display: inline-block;
+    margin: 5px;
+    text-align: center;
+    background-color: #ff88ff;
+}
+
+.day-of-weekend{
+    background-color: #ff55ff;
+}
+
+.day-inner{
+    width: 70px;
+    height: 70px;
+    color: #fff;
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 18px;
+    padding-top: 8px;
+}
+
+.day-of-week:hover{
+    background-color: #ff22ff;
+}
+
+.day-chosen{
+    display: inline-block;
+    background-color: #aaa;
+}
+
+#reverse-week, #forward-week{
+    font-weight: bold;
+    font-size: 60px;
+    line-height: 52px;
+}
+
+.hour-row tr:nth-child(even){
+    background-color: #ffaaff;
+}
+
+.hour-row tr:nth-child(odd){
+    background-color: #aaffff;
+}
+
+.inner-table{
+    border: 0px;
+}
+
+tr{
+    padding: 0;
+}
+
+td{
+    border: 0px;
+    padding: 5px;
+}
+
+.inner-table, .inner-table2{
+    border: 0px;
+    padding: 0;
+    margin: -7px;
+}
+
+.inner-table tr:nth-child(4n+1){
+    background-color: #dd88dd;
+}
+
+.inner-table tr:nth-child(4n+2){
+    background-color: #bb66bb;
+}
+
+.inner-table2 tr:nth-child(4n+1){
+    background-color: #88bbbb;
+}
+
+.inner-table2 tr:nth-child(4n+2){
+    background-color: #669999;
+}

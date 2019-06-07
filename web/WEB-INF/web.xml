@@ -1,20 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
     <servlet>
-        <servlet-name>MechanicLogginControllerServlet</servlet-name>
-        <servlet-class>barpiotr.mechanic.MechanicLogginControllerServlet</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>DriverControllerServlet</servlet-name>
         <servlet-class>barpiotr.driver.DriverControllerServlet</servlet-class>
     </servlet>
-    <servlet-mapping>
-        <servlet-name>MechanicLogginControllerServlet</servlet-name>
-        <url-pattern>/MechanicLogginControllerServlet</url-pattern>
-    </servlet-mapping>
+    <servlet>
+        <servlet-name>MechanicControllerServlet</servlet-name>
+        <servlet-class>barpiotr.mechanic.MechanicControllerServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>LogoutServer</servlet-name>
+        <servlet-class>barpiotr.util.LogoutServer</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>DriverControllerServlet</servlet-name>
         <url-pattern>/DriverControllerServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>MechanicControllerServlet</servlet-name>
+        <url-pattern>/MechanicControllerServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LogoutServer</servlet-name>
+        <url-pattern>/LogoutServer</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

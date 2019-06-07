@@ -13,134 +13,128 @@
         <title>GERBOX - vehicle choice</title>
     </head>
     <body>
-        <h3>Choose your vehicle:</h3>
-        <table border="2" class="hour-row">
-            <tr>
-                <td>
-                    <form action="DriverControllerServlet" method="GET">    
-                        <input type="hidden" name="availabilitycheckform" value="AVAILABILITY_CHECK"/>
 
-                        <!--xxxxxxxxxxxxxxxx FIRST FIELD TO CHOOSE xxxxxxxxxxxxxxxx-->
-                        <c:set var="select_chosen" value="${CHOSEN_VEHICLE_MODEL}"/>
+        <!--xxxxxxxxxxxxxxxx FIRST FIELD TO CHOOSE xxxxxxxxxxxxxxxx-->
+        <c:set var="selectChosen" value="${CHOSEN_VEHICLE_MODEL}"/>
+        <!--to check if option is chosen-->
+        <c:if test="${selectChosen.equals(\"0\")}">
+            ${selectChosen=""}
+        </c:if>    
+        <div>
+            <label>Give details of the vehicle</label>
+            <!-- <br/> -->
+            <p class="warning">${VEHICLE_MODEL_EMPTY}</p>
+            <div class="input-frame">
+                <select name="vehicle-model" id="vehicle-model" class="select-option" >
+                    <option>
+                        choose model
+                    </option>
+                    <c:forEach var="tempElement" items="${LIST_OF_VEHICLE_MODELS}">
+                        <c:set var="selection" value=""/>
+                        <c:if test="${tempElement.name.equals(selectChosen)}">
+                            <c:set var="selection" value="selected"/>
+                        </c:if>
+                        <option value="${tempElement.name}" ${selection}>${tempElement.name}</option>
+                    </c:forEach>
+                    <option value="other">
+                        OTHER
+                    </option>         
+                </select>
+            </div>
+            <div class="input-frame hidden-text-frame other-model-to-put" id="other-model-to-put">
+                <input type="text" class="input-text" name="other-model" placeholder="enter your model" value="" />	
+            </div>
 
-                        <!--to check if option is chosen-->
-                        <c:if test="${select_chosen.equals(\"0\")}">
-                            ${select_chosen=""}
-                        </c:if>    
+            <!--xxxxxxxxxxxxxxxx SECOND FIELD TO CHOOSE xxxxxxxxxxxxxxxx-->                        
+            <c:set var="selectChosen" value="${CHOSEN_VEHICLE_MAKE}"/>
 
-                        <p>${select_chosen}</p>
+            <!--to check if option is chosen-->
+            <c:if test="${selectChosen.equals(\"0\")}">
+                ${selectChosen=""}
+            </c:if>    
 
-                        <select name="vehicle-model" id="vehicle-model" value="${tempElement.name}">
-                            <option value="0">
-                                Choose model
-                            </option>
+            <p class="warning">${VEHICLE_MAKE_EMPTY}</p>
+            <div class="input-frame">             		
+                <select name="vehicle-make" id="vehicle-make" class="select-option" >
+                    <option>
+                        choose make
+                    </option>
+                    <c:forEach var="tempElement" items="${LIST_OF_VEHICLE_MAKES}">
+                        <c:set var="selection" value=""/>
+                        <c:if test="${tempElement.name.equals(selectChosen)}">
+                            <c:set var="selection" value="selected"/>
+                        </c:if>
+                        <option value="${tempElement.name}" ${selection}>${tempElement.name}</option>
+                    </c:forEach>
+                    <option value="other">
+                        OTHER
+                    </option>    
+                </select>
+            </div>
+                <div class="input-frame hidden-text-frame other-make-to-put" id="other-make-to-put">
+                    <input type="text" class="input-text other-make-to-put" name="other-make" placeholder="enter your make"/>
+                </div>
 
-                            <c:forEach var="tempElement" items="${LIST_OF_VEHICLE_MODELS}">
-                                <c:set var="selection" value=""/>
-                                <c:if test="${tempElement.name.equals(select_chosen)}">
-                                    <c:set var="selection" value="selected"/>
-                                </c:if>
-                                <option value="${tempElement.name}" ${selection}>${tempElement.name}</option>
-                            </c:forEach>
-                            <option value="other">
-                                OTHER
-                            </option>         
-                        </select>
-                        <input type="text" id="other-model-to-put" value="Enter your model"/>
-                        <br/>
+            <!--xxxxxxxxxxxxxxxx THIRD FIELD TO CHOOSE xxxxxxxxxxxxxxxx-->                            
+            <c:set var="selectChosen" value="${CHOSEN_VEHICLE_TYPE}"/>
 
-                        <!--xxxxxxxxxxxxxxxx SECOND FIELD TO CHOOSE xxxxxxxxxxxxxxxx-->                        
-                        <c:set var="select_chosen" value="${CHOSEN_VEHICLE_MAKE}"/>
+            <!--to check if option is chosen-->
+            <c:if test="${selectChosen.equals(\"0\")}">
+                ${selectChosen=""}
+            </c:if>    
 
-                        <!--to check if option is chosen-->
-                        <c:if test="${select_chosen.equals(\"0\")}">
-                            ${select_chosen=""}
-                        </c:if>    
+            <p class="warning">${VEHICLE_TYPE_EMPTY}</p>
+            <div class="input-frame">                		
+                <select name="vehicle-type" id="vehicle-type" class="select-option" >
+                    <option>
+                        choose type
+                    </option>
+                    <c:forEach var="tempElement" items="${LIST_OF_VEHICLE_TYPES}">
+                        <c:set var="selection" value=""/>
+                        <c:if test="${tempElement.name.equals(selectChosen)}">
+                            <c:set var="selection" value="selected"/>
+                        </c:if>
+                        <option value="${tempElement.name}" ${selection}>${tempElement.name}</option>
+                    </c:forEach>                    
+                </select>
+            </div>                                        
 
-                        <p>${select_chosen}</p>
+            <!-- xxxxxxxxxxxxxxxx FORTH FIELD TO CHOOSE xxxxxxxxxxxxxxxx-->                            
+            <c:set var="selectChosen" value="${CHOSEN_ENGINE_TYPE}"/>
 
-                        <select name="vehicle-make" id="vehicle-make">
-      
-                            <option value="0">
-                                Choose make
-                            </option>
+            <!--to check if option is chosen-->
+            <c:if test="${selectChosen.equals(\"0\")}">
+                ${selectChosen=""}
+            </c:if>    
 
-                            <c:forEach var="tempElement" items="${LIST_OF_VEHICLE_MAKES}">
-                                <c:set var="selection" value=""/>
-                                <c:if test="${tempElement.name.equals(select_chosen)}">
-                                    <c:set var="selection" value="selected"/>
-                                </c:if>
-                                <option value="${tempElement.name}" ${selection}>${tempElement.name}</option>
-                            </c:forEach>
-                            <option value="other">
-                                OTHER
-                            </option>    
-                        </select>
-                        <input type="text" id="other-make-to-put" value="Enter your make"/>
-                        <br/>
-
-                        <!--xxxxxxxxxxxxxxxx THIRD FIELD TO CHOOSE xxxxxxxxxxxxxxxx-->                            
-                        <c:set var="select_chosen" value="${CHOSEN_VEHICLE_TYPE}"/>
-
-                        <!--to check if option is chosen-->
-                        <c:if test="${select_chosen.equals(\"0\")}">
-                            ${select_chosen=""}
-                        </c:if>    
-
-                        <p>${select_chosen}</p>
-
-                        <select name="vehicle-type" id="vehicle-type">
-                            //removed  value="${tempElement.name}"
-                            <option value="0">
-                                Choose type
-                            </option>
-
-                            <c:forEach var="tempElement" items="${LIST_OF_VEHICLE_TYPES}">
-                                <c:set var="selection" value=""/>
-                                <c:if test="${tempElement.name.equals(select_chosen)}">
-                                    <c:set var="selection" value="selected"/>
-                                </c:if>
-                                <option value="${tempElement.name}" ${selection}>${tempElement.name}</option>
-                            </c:forEach>                    
-                        </select>     
-
-                        <!-- xxxxxxxxxxxxxxxx FORTH FIELD TO CHOOSE xxxxxxxxxxxxxxxx-->                            
-                        <c:set var="select_chosen" value="${CHOSEN_ENGINE_TYPE}"/>
-
-                        <!--to check if option is chosen-->
-                        <c:if test="${select_chosen.equals(\"0\")}">
-                            ${select_chosen=""}
-                        </c:if>    
-
-                        <p>${select_chosen}</p>
-
-                        <select name="engine-type" id="engine-type">
-                            //removed  value="${tempElement.name}"                            
-                            <option value="0">
-                                Choose engine
-                            </option>
-
-                            <c:forEach var="tempElement" items="${LIST_OF_ENGINE_TYPES}">
-                                <c:set var="selection" value=""/>
-                                <c:if test="${tempElement.name.equals(select_chosen)}">
-                                    <c:set var="selection" value="selected"/>
-                                </c:if>
-                                <option value="${tempElement.name}" ${selection}>${tempElement.name}</option>
-                            </c:forEach>                    
-                        </select>
-                        <br/>
-                        <br/>
-                        <!-- xxxxxxxxxxxxxxxx FIFTH FIELD TO CHOOSE /optional/ xxxxxxxxxxxxxxxx-->
-                        <input type="text" id="vehicle-registration" value="REGISTRATION"/>
-                        <br/>
-                        <br/>
-                        <input type="text" id="vehicle-color" value="COLOUR"/>
-                        <br/>
-                        <br/>
-                        <input type="submit" value="CHECK AVAILABILITY"/></a>
-                    </form>
-                </td>
-            </tr>
-        </table>
+            <p class="warning">${ENGINE_TYPE_EMPTY}</p>
+            <div class="input-frame">                		
+                <select name="engine-type" id="engine-type" class="select-option" >
+                    //removed  value="${tempElement.name}"                            
+                    <option>
+                        choose engine
+                    </option>
+                    <c:forEach var="tempElement" items="${LIST_OF_ENGINE_TYPES}">
+                        <c:set var="selection" value=""/>
+                        <c:if test="${tempElement.name.equals(selectChosen)}">
+                            <c:set var="selection" value="selected"/>
+                        </c:if>
+                        <option value="${tempElement.name}" ${selection}>${tempElement.name}</option>
+                    </c:forEach>                    
+                </select>        
+            </div>
+                    
+            <!-- xxxxxxxxxxxxxxxx FIFTH FIELD TO PUT xxxxxxxxxxxxxxxx-->
+            <p class="warning">${VEHICLE_REGISTRATION_EMPTY}</p>
+            <div class="input-frame">
+                <input type="text" name="vehicle-registration" id="vehicle-registration" class="input-text select-option" placeholder="Put registration in"/>                		       
+            </div>
+            
+            <!-- xxxxxxxxxxxxxxxx SIXTH FIELD TO PUT xxxxxxxxxxxxxxxx-->
+            <p class="warning">${VEHICLE_COLOR_EMPTY}</p>
+            <div class="input-frame">
+                <input type="text" name="vehicle-color" id="vehicle-color" class="input-text select-option" placeholder="Put color in"/>                		       
+            </div>
+        </div>
     </body>
 </html>

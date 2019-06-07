@@ -13,20 +13,22 @@ a{
 }
 
 .day-of-week, .day-of-weekend, .day-chosen{
+    color: #fff;
     width: 70px;
     height: 70px;
     border: 0;
     display: inline-block;
     margin: 5px;
     text-align: center;
-    background-color: #ff88ff;
+    background-color: #BC477B;
+    font-size: 18px;
 }
 
 .day-of-weekend{
-    background-color: #ff55ff;
+    background-color: #C8C8C8;
 }
 
-.day-inner{
+.day-inner, .day-inner-weekend{
     width: 70px;
     height: 70px;
     color: #fff;
@@ -36,13 +38,18 @@ a{
     padding-top: 8px;
 }
 
-.day-of-week:hover{
-    background-color: #ff22ff;
+.day-inner-weekend{
+    color: #BC477B;
+}
+
+.day-of-week:hover, .day-of-weekend:hover{
+    background-color: #F297C3;
+    color: #fff;
 }
 
 .day-chosen{
     display: inline-block;
-    background-color: #aaa;
+    background-color: #560027;
 }
 
 #reverse-week, #forward-week{

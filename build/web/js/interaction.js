@@ -19,28 +19,32 @@ let optionOtherId = ["other-model-to-put", "other-make-to-put"];
 var optionOtherModel = "other-model-to-put";
 var optionOtherMake = "other-make-to-put";
 
-document.getElementById(selectModel).addEventListener("change", function(){
 
-        displayFieldToPutOwn(selectModel);
-    }    
-);
-document.getElementById(selectMake).addEventListener("change", function(){
-    displayFieldToPutOwn(selectMake);
+
+document.getElementById(selectModel).addEventListener("change", function () {
+    if (document.getElementById(selectModel).value == "other") {
+        console.log("ble");
+        document.getElementById(optionOtherId[0]).style.visibility = "visible";
+        document.getElementById(optionOtherId[0]).style.marginBottom = "0";
+    } else {
+        document.getElementById(optionOtherId[0]).style.visibility = "hidden";
+        document.getElementById(optionOtherId[0]).style.marginBottom = "-50px";
+    }
 });
 
-function displayFieldToPutOwn(bleId){
-            for(i = 0; i < selectId.length; i++){
-                console.log(i);
-                console.log(selectId[i]);
-    if (document.getElementById(bleId).value == "other"){
+document.getElementById(selectMake).addEventListener("change", function () {
+    if (document.getElementById(selectMake).value == "other") {
         console.log("ble");
-
-        document.getElementById(optionOtherId[i]).style.visibility = "visible";
-        }
-    
-    else{
-        document.getElementById(optionOtherId[i]).style.visibility = "hidden";        
+        document.getElementById(optionOtherId[1]).style.visibility = "visible";
+        document.getElementById(optionOtherId[1]).style.marginBottom = "0";
+    } else {
+        document.getElementById(optionOtherId[1]).style.visibility = "hidden";
+        document.getElementById(optionOtherId[1]).style.marginBottom = "-50px";
     }
-}
+});
 
-}
+document.getElementById("log-out").addEventListener("click", function () {
+            console.log("ble");
+    history.forward();
+});
+

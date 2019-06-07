@@ -11,11 +11,14 @@ package barpiotr.util;
  */
 public interface ServiceUser {
     
+    int id = 0;
     String login= null;
     String password = null;
+    String firstName = null;
 
+    public int getId();
     public String getLogin();
-
     public String getPassword();   
+    public String getFirstName();   
     
 }

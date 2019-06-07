@@ -14,27 +14,14 @@
     </head>
 
     <body>
-        Choose make: 
-        <select>
+
             <c:forEach var="tempElement" items="${LIST_OF_MAKES}">
                 <option>${tempElement.name}</option>
             </c:forEach>
-        </select>
-        <br/><br/>
-        Choose vehicle type: 
-        <select>
-            <c:forEach var="tempElement" items="${LIST_OF_VEHICLETYPES}">
-                <option>${tempElement.name}</option>
-            </c:forEach>
-        </select> 
-        <br/><br/>
-        Choose service type: 
-        <select>
-            <c:forEach var="tempElement" items="${LIST_OF_SERVICETYPES}">
-                <option>${tempElement.name}</option>
-            </c:forEach>
-        </select>   
 
+                <c:set var="dayParam" value="${SINGLE_DAY}"/>
+                
+                ${dayParam.getDayOfMonth()}
 
     </body>
 </html>
